@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http'
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { NgForm } from '@angular/forms';
 
 
 export class Friend {
@@ -52,6 +53,14 @@ export class HomeComponent implements OnInit {
     } else {
       return `with: ${reason}`;
     }
+  }
+  onSubmit(f: NgForm) {
+    const url = 'http://localhost:8888/friends/addnew';
+    this.http.post(url, f.value)
+      .subscribe((result) => {
+        this.ngOnInit(); //reload the table
+      });
+    this.modalService.dismissAll(); //dismiss the modal
   }
 
 }
