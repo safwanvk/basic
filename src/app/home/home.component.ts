@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
   friends: Friend[];
   friend: Friend[];
   editForm: FormGroup;
+  private deleteId: number;
 
   constructor(private http: HttpClient, private modalService: NgbModal, private fb: FormBuilder) { }
 
@@ -105,6 +106,23 @@ onSave() {
   const editURL = 'https://jsonplaceholder.typicode.com/posts' + this.editForm.value.id;
   console.log(this.editForm.value);
   this.http.put(editURL, this.editForm.value)
+    .subscribe((results) => {
+      this.ngOnInit();
+      this.modalService.dismissAll();
+    });
+}
+openDelete(targetModal, friend: Friend) {
+  this.deleteId = friend.id;
+  this.modalService.open(targetModal, {
+    centered: true,
+    backdrop: 'static',
+    size: 'lg'
+  });
+}
+
+onDelete() {
+  const deleteURL = 'https://jsonplaceholder.typicode.com/posts' + this.deleteId;
+  this.http.delete(deleteURL)
     .subscribe((results) => {
       this.ngOnInit();
       this.modalService.dismissAll();
