@@ -1,1 +1,27 @@
-<p>reactiveform works!</p>
+<div class="container">
+    <div class="formcontainer">
+      <h1>Student Data</h1>
+      <br>
+      <form [formGroup] = "rform" (ngSubmit)="send()">
+        <div class="form-group">
+          <label>id</label>
+          <input class="form-control" formControlName="id">
+        </div>
+        <div class="form-group">
+          <label>Name</label>
+          <input class="form-control" formControlName="name">
+        </div>
+        <div class="form-group">
+          <label >Department</label>
+          <input class="form-control" formControlName="department">
+        </div>
+        <select class="form-control" formControlName="country">
+            <option *ngFor="let country of countries" value={{country}}>
+              {{country}}
+            </option>
+          </select>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+</div>
+
