@@ -23,7 +23,7 @@
         <td><span>{{friend.email}}</span></td>
         <td><span>{{friend.website}}</span></td>
         <td>
-          <button class="btn btn-sm btn-info">
+          <button class="btn btn-sm btn-info" (click)="openDetails(contentDetails, friend)">
             <i class="fa fa-search"></i>Details</button>
           <button class="btn btn-sm btn-warning">
             <i class="fa fa-edit"></i>Edit</button>
@@ -45,37 +45,83 @@
   <div class="modal-body">
     <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
       <div class="form-group">
-        <label for="firstname">Name</label>
+        <label for="name">Name</label>
         <div class="input-group">
           <input id="name" name="name" class="form-control" ngModel>
         </div>
       </div>
       <div class="form-group">
-        <label for="lastname">Username</label>
+        <label for="username">Username</label>
         <div class="input-group">
           <input id="username" name="username" class="form-control" ngModel>
         </div>
       </div>
       <div class="form-group">
-        <label for="firstname">Phone</label>
+        <label for="phone">Phone</label>
         <div class="input-group">
           <input id="phone" name="phone" class="form-control" ngModel>
         </div>
       </div>
       <div class="form-group">
-        <label for="lastname">Email</label>
+        <label for="email">Email</label>
         <div class="input-group">
           <input id="email" name="email" class="form-control" ngModel>
         </div>
       </div>
       <div class="form-group">
-        <label for="lastname">Website</label>
+        <label for="website">Website</label>
         <div class="input-group">
           <input id="website" name="website" class="form-control" ngModel>
         </div>
       </div>
       <div class="border text-center">
         <button data-dismiss="modal" class="btn btn-info">Submit</button>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+  </div>
+</ng-template>
+
+<ng-template #contentDetails let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">New Friend</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="name1">Name</label>
+        <div class="input-group">
+          <input id="name1" name="name1" class="form-control" readonly>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="username1">Username</label>
+        <div class="input-group">
+          <input id="username1" name="username1" class="form-control" readonly>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phone1">Phone</label>
+        <div class="input-group">
+          <input id="phone1" name="phone1" class="form-control" readonly>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email1">Email</label>
+        <div class="input-group">
+          <input id="email1" name="email1" class="form-control" readonly>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="website1">Website</label>
+        <div class="input-group">
+          <input id="website1" name="website1" class="form-control" readonly>
+        </div>
       </div>
     </form>
   </div>

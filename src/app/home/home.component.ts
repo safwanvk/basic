@@ -62,5 +62,17 @@ export class HomeComponent implements OnInit {
       });
     this.modalService.dismissAll(); //dismiss the modal
   }
+  openDetails(targetModal, friend: Friend) {
+    this.modalService.open(targetModal, {
+     centered: true,
+     backdrop: 'static',
+     size: 'lg'
+   });
+    document.getElementById('name1').setAttribute('value', friend.name);
+    document.getElementById('username1').setAttribute('value', friend.username);
+    document.getElementById('phone1').setAttribute('value', friend.phone);
+    document.getElementById('email1').setAttribute('value', friend.email);
+    document.getElementById('website1').setAttribute('value', friend.website);
+ }
 
 }
