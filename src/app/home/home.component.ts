@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http'
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormBuilder } from '@angular/forms';
 
 
 export class Friend {
@@ -25,10 +25,22 @@ export class Friend {
 export class HomeComponent implements OnInit {
   closeResult: string;
   friends: Friend[];
-  constructor(private http: HttpClient, private modalService: NgbModal) { }
+  friend: Friend[];
+  editForm: FormGroup;
+
+  constructor(private http: HttpClient, private modalService: NgbModal, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.getFriends();
+    this.editForm = this.fb.group({
+      name: [''],
+      username: [''],
+      phone: [''],
+      email: [''],
+      website: ['']
+    } );
+  
+   
   }
   getFriends(){
     this.http.get<any>('https://jsonplaceholder.typicode.com/users').subscribe(
@@ -55,7 +67,7 @@ export class HomeComponent implements OnInit {
     }
   }
   onSubmit(f: NgForm) {
-    const url = 'http://localhost:8888/friends/addnew';
+    const url = 'https://jsonplaceholder.typicode.com/posts';
     this.http.post(url, f.value)
       .subscribe((result) => {
         this.ngOnInit(); //reload the table
@@ -74,5 +86,24 @@ export class HomeComponent implements OnInit {
     document.getElementById('email1').setAttribute('value', friend.email);
     document.getElementById('website1').setAttribute('value', friend.website);
  }
+
+ openEdit(targetModal, friend: Friend) {
+  this.modalService.open(targetModal, {
+    centered: true,
+    backdrop: 'static',
+    size: 'lg'
+  });
+  this.editForm.patchValue( {
+    name: friend.name,
+    username: friend.username,
+    phone: friend.phone,
+    email: friend.email,
+    website: friend.website
+  });
+}
+
+
+ 
+ 
 
 }
