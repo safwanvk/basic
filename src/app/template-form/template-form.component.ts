@@ -8,7 +8,7 @@ import { Student } from './Student';
 })
 export class TemplateFormComponent implements OnInit {
   countries = ['India', 'USA', 'Nigeria', 'Hungary', 'Canada', 'France'];
-  private model: Student;
+  public model: Student;
 
 
   constructor(

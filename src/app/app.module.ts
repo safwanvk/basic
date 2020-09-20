@@ -10,6 +10,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TemplateFormComponent } from './template-form/template-form.component';
+import { ReactiveformComponent } from './reactiveform/reactiveform.component';
 
 
 
@@ -18,7 +19,8 @@ import { TemplateFormComponent } from './template-form/template-form.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    TemplateFormComponent
+    TemplateFormComponent,
+    ReactiveformComponent
   
   ],
   imports: [
