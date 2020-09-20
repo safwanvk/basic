@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TemplateFormComponent } from './template-form/template-form.component';
 import { ReactiveformComponent } from './reactiveform/reactiveform.component';
+import { FormvalidationComponent } from './formvalidation/formvalidation.component';
 
 
 
@@ -20,7 +21,8 @@ import { ReactiveformComponent } from './reactiveform/reactiveform.component';
     AppComponent,
     HomeComponent,
     TemplateFormComponent,
-    ReactiveformComponent
+    ReactiveformComponent,
+    FormvalidationComponent
   
   ],
   imports: [
