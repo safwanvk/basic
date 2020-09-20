@@ -101,9 +101,13 @@ export class HomeComponent implements OnInit {
     website: friend.website
   });
 }
-
-
- 
- 
-
+onSave() {
+  const editURL = 'https://jsonplaceholder.typicode.com/posts' + this.editForm.value.id;
+  console.log(this.editForm.value);
+  this.http.put(editURL, this.editForm.value)
+    .subscribe((results) => {
+      this.ngOnInit();
+      this.modalService.dismissAll();
+    });
+}
 }
