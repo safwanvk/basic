@@ -5,7 +5,9 @@ import { ContactDetailComponent } from './contact-detail/contact-detail.componen
 
 const routes: Routes = [
     {path: 'contacts' , component: ContactListComponent},
-    {path: 'contact/:id' , component: ContactDetailComponent}
+    {path: 'contact/:id' , component: ContactDetailComponent},
+    {path: '', pathMatch: 'full', redirectTo: 'contacts'}  
+
 ];
 
 
