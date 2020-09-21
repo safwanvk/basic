@@ -19,5 +19,5 @@ export class BackendService implements InMemoryDbService{
     return {contacts};
  
    }
-  }
 }
+
