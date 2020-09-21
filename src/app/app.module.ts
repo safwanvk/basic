@@ -21,6 +21,7 @@ import { ContactDetailComponent } from './contact-detail/contact-detail.componen
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { ContactDetailComponent } from './contact-detail/contact-detail.componen
     ReactiveformComponent,
     FormvalidationComponent,
     ContactListComponent,
-    ContactDetailComponent
+    ContactDetailComponent,
+ 
   
   ],
   imports: [
