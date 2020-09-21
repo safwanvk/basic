@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { TemplateFormComponent } from './template-form/template-form.component';
 import { ReactiveformComponent } from './reactiveform/reactiveform.component';
 import { FormvalidationComponent } from './formvalidation/formvalidation.component';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { BackendService } from './backend.service';
 
 
 
@@ -31,7 +33,8 @@ import { FormvalidationComponent } from './formvalidation/formvalidation.compone
     NgbModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    InMemoryWebApiModule.forRoot(BackendService)
     
   ],
   providers: [],
